@@ -33,6 +33,7 @@ Route::group(['prefix'=>'masterbarang'], function(){
 Route::group(['prefix'=>'kategori'], function(){
     route::get('/','KategoriController@index')->name('kategori');
     route::get('/edit','KategoriController@edit')->name('kategori.edit');
+    route::post('/','KategoriController@store')->name('kategori.store');
 });
 
 //brand

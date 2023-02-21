@@ -17,9 +17,12 @@
                      <th scope="col">Options</th>
                  </thead>
                  <tbody>
-                         <td></td>
-                         <td></td>
-                         <td></td>
+                         <td>KTG/20220221/001</td>
+                         <td>Sport</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-secondary">update Stock</button>
+                            <button type="button" class="btn btn-outline-secondary">Tampilkan Stock</button>
+                        </td>
                      </tr>
                  </tbody>
              </table>

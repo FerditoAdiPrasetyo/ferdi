@@ -3,23 +3,27 @@
 @section('content')
 <div class="container">
     <div class="d-flex">
-        <p style="margin-left: 2px; font-weight: bold;">Transaksi</p>
-        <p style="margin-left: 5px;">/ Barang Keluar</p>
+        <ol class="breadcrumb bg-transparent d-flex align-items-center">
+            <li class="breadcrumb-item" aria-current="page">Transaksi</li>
+            <li class="breadcrumb-item active" aria-current="page">Barang Keluar</li>
+        </ol>
     </div>
     <div class="card">
-       <table class="table table-hover">
-            <thead>
-                <th scope="col">Refrensi</th>
-                <th scope="col">Supplier</th>
-                <th scope="col">Status</th>
-                <th scope="col">Tanggal</th>
-                <th scope="col">Options</th>
-            </thead>
-            <tbody>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <th scope="col">Refrensi</th>
+                    <th scope="col">Supplier</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Options</th>
+                </thead>
+                <tbody>
                     <td></td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

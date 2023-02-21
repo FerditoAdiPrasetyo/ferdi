@@ -13,8 +13,8 @@
                 <div class="card-body">
                     <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Nama Satuan</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="nama">Nama Satuan</label>
+                        <input type="email" name="nama" value="{{old('nama_satuan')}}" class="form-control" id="nama" placeholder="">
                         <button type="submit" class="btn btn-outline-primary mt-4">
                             Simpan Satuan
                         </button>
@@ -31,7 +31,12 @@
                         <th scope="col">Options</th>
                     </thead>
                     <tbody>
-                            <td></td>
+                            <td>UOM/20220221/001</td>
+                            <td>Unit</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-warning">Edit Satuan</button>
+                                <button type="button" class="btn btn-outline-danger">Hapus Satuan</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

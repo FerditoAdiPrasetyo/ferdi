@@ -12,10 +12,11 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <form>
+                    <form action="{{route('kategori.store')}}" method="post">
+                    @csrf
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Nama Kategori</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="nama">Nama Kategori</label>
+                        <input type="text" name="nama" value="{{old('nama_kategori')}}" class="form-control" id="nama" placeholder="">
                         <button type="submit" class="btn btn-outline-primary mt-4">
                             Perbarui Kategori
                         </button>
@@ -33,7 +34,13 @@
                         <th scope="col">Options</th>
                     </thead>
                     <tbody>
-                            <td></td>
+                        
+                            <td>KTG/20220221/001</td>
+                            <td>Sport</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-warning">Edit Kategori</button>
+                                <button type="button" class="btn btn-outline-danger">Hapus Kategori</button>
+                            </td>
                     </tbody>
                 </table>
             </div>

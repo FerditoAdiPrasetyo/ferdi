@@ -14,8 +14,8 @@
                 <div class="card-body">
                     <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Nama Brand</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="nama">Nama Brand</label>
+                        <input type="text" name="nama" value="{{old('nama_brand')}}" class="form-control" id="nama" placeholder="">
                         <button type="submit" class="btn btn-outline-primary mt-4">
                             Simpan Brand
                         </button>
@@ -33,7 +33,12 @@
                         <th scope="col">Options</th>
                     </thead>
                     <tbody>
-                            <td></td>
+                            <td>BRND/20220221/001</td>
+                            <td>Rexus</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-warning">Edit Brand</button>
+                                <button type="button" class="btn btn-outline-danger">Hapus Brand</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

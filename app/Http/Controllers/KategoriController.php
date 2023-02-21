@@ -10,4 +10,11 @@ class KategoriController extends Controller
     {
         return view ('kategori.index');
     }
+    public function store(Request $request)
+    {
+          $this->validate($request, [
+            'nama_kategori'          => 'required',
+        ]);
+        return redirect()->route('kategori.index');
+    }
 }
