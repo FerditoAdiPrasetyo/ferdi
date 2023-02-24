@@ -12,10 +12,11 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <form>
+                    <form action="{{route('brand.store')}}" method="post">
+                        @csrf
                     <div class="form-group">
-                        <label for="nama">Nama Brand</label>
-                        <input type="text" name="nama" value="{{old('nama_brand')}}" class="form-control" id="nama" placeholder="">
+                        <label for="">Nama Brand</label>
+                        <input type="text" name="nama" class="form-control" id="" placeholder="">
                         <button type="submit" class="btn btn-outline-primary mt-4">
                             Simpan Brand
                         </button>
@@ -33,13 +34,17 @@
                         <th scope="col">Options</th>
                     </thead>
                     <tbody>
-                            <td>BRND/20220221/001</td>
-                            <td>Rexus</td>
+                        @forelse ($brands as $brand)
+                        <tr>
+                            <td>{{$brand->no_reg}}</td>
+                            <td>{{$brand->nama}}</td>
                             <td>
                                 <button type="button" class="btn btn-outline-warning">Edit Brand</button>
                                 <button type="button" class="btn btn-outline-danger">Hapus Brand</button>
                             </td>
                         </tr>
+                        @empty
+                        @endforelse
                     </tbody>
                 </table>
             </div>

@@ -14,9 +14,9 @@
                 <div class="card-body">
                     <form action="{{route('kategori.store')}}" method="post">
                     @csrf
-                    <div class="form-group">
-                        <label for="nama">Nama Kategori</label>
-                        <input type="text" name="nama" value="{{old('nama_kategori')}}" class="form-control" id="nama" placeholder="">
+                    <div id="answer1" class="form-group">
+                        <label for="">Nama Kategori</label>
+                        <input type="text" name="nama"  class="form-control" id="" placeholder="">
                         <button type="submit" class="btn btn-outline-primary mt-4">
                             Perbarui Kategori
                         </button>
@@ -34,13 +34,17 @@
                         <th scope="col">Options</th>
                     </thead>
                     <tbody>
-                        
-                            <td>KTG/20220221/001</td>
-                            <td>Sport</td>
+                        @forelse($kategories as $kategori)
+                        <tr>
+                            <td>{{$kategori->no_reg}}</td>
+                            <td>{{$kategori->nama}}</td>
                             <td>
                                 <button type="button" class="btn btn-outline-warning">Edit Kategori</button>
                                 <button type="button" class="btn btn-outline-danger">Hapus Kategori</button>
                             </td>
+                        </tr>
+                        @empty
+                        @endforelse
                     </tbody>
                 </table>
             </div>

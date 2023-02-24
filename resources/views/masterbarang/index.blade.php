@@ -10,20 +10,38 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <table class="table table-hover">
+            <table class="table table-striped">
                  <thead>
                      <th scope="col">Kode Categorys</th>
                      <th scope="col">Nama Barang</th>
                      <th scope="col">Options</th>
                  </thead>
                  <tbody>
-                         <td>KTG/20220221/001</td>
-                         <td>Sport</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-secondary">update Stock</button>
-                            <button type="button" class="btn btn-outline-secondary">Tampilkan Stock</button>
-                        </td>
-                     </tr>
+                    @forelse ($cupboards as $cupboard)
+                    <tr>
+                        <td>{{$cupboard->no_reg}}</td>
+                        <td>{{$cupboard->nama}}</td>
+                       <td>
+                        <form action="" method="post">
+                            @csrf
+                            @role('admin')
+                            <a href="{{route('masterbarang.show', $cupboard->id)}}" class="btn btn-outline-secondary btn-sm">
+                                update stock
+                            </a>
+                            <a href="{{route('rak.barang', $cupboard->id)}}" class="btn btn-outline-secondary btn-sm">
+                                Tampilkan Stock
+                            </a>
+                            @endrole
+                            @role('customer')
+                            <a href="{{route('rak.barang', $cupboard->id)}}" class="btn btn-outline-warning btn-sm">
+                                Buat Permintaan
+                            </a>
+                            @endrole
+                        </form>
+                       </td>
+                    </tr>
+                    @empty
+                    @endforelse
                  </tbody>
              </table>
         </div>

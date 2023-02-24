@@ -10,49 +10,51 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="#" method="post">
+            <form action="{{route('masterbarang.store',$kategories->id)}}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="nip" style="font-weight: bold;">Nama Barang:</label>
-                            <input type="text" name="nama-barang"  id="nama-barang" class="form-control" placeholder="">
+                            <label for="" style="font-weight: bold;">Nama Barang:</label>
+                            <input type="text" name="nama"  id="" class="form-control" placeholder="">
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="form-group">
-                            <label for="brand" style="font-weight: bold;">Brand:</label>
-                            <select name="brand" id="brand" class="form-control">
+                            <label for="" style="font-weight: bold;">Brand:</label>
+                            <select name="brand_id" id="" class="form-control">
+                                @foreach ($brands as $brands)
                                 <option value="">Pilih Brand</option>
-                                <option value="a">a</option>
-                                <option value="b">b</option>
+                                <option value="{{$brands->id}}">{{$brands->no_reg}} - {{$brands->nama}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="form-group">
-                            <label for="uom" style="font-weight: bold;">UOM:</label>
-                            <select name="uom" id="uom" class="form-control">
+                            <label for="" style="font-weight: bold;">UOM:</label>
+                            <select name="satuan_id" id="" class="form-control">
+                                @foreach ($satuans as $uom)
                                 <option value="">Pilih UOM</option>
-                                <option value="a">a</option>
-                                <option value="b">b</option>
+                                <option value="{{$uom->id}}">{{$uom->no_reg}} - {{$uom->nama}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="harga" style="font-weight: bold;">Harga:</label>
-                            <input type="text" name="harga"  id="harga" class="form-control" placeholder="">
+                            <label for="" style="font-weight: bold;">Harga:</label>
+                            <input type="text" name="harga"  id="" class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="stock" style="font-weight: bold;">Jumlah Stock:</label>
-                            <input type="text" name="stock" id="stock" class="form-control" placeholder="">
+                            <label for="" style="font-weight: bold;">Jumlah Stock:</label>
+                            <input type="text" name="quantity" id="" class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <button type="submit" class="btn btn-outline-primary">
+                        <button class="btn btn-outline-primary">
                             Simpan Stock
                         </button>
                     </div>

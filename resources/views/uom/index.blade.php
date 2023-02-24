@@ -11,10 +11,11 @@
     <div class="row">
         <div class="col-md-4">
                 <div class="card-body">
-                    <form>
-                    <div class="form-group">
-                        <label for="nama">Nama Satuan</label>
-                        <input type="email" name="nama" value="{{old('nama_satuan')}}" class="form-control" id="nama" placeholder="">
+                    <form action="{{route('uom.store')}}" method="post">
+                        @csrf
+                    <div id="answer1" class="form-group">
+                        <label for="">Nama Satuan</label>
+                        <input type="text" name="nama"  class="form-control" id="" placeholder="">
                         <button type="submit" class="btn btn-outline-primary mt-4">
                             Simpan Satuan
                         </button>
@@ -31,13 +32,17 @@
                         <th scope="col">Options</th>
                     </thead>
                     <tbody>
-                            <td>UOM/20220221/001</td>
-                            <td>Unit</td>
+                        @forelse ($satuans as $satuan)
+                        <tr>
+                            <td>{{$satuan->no_reg}}</td>
+                            <td>{{$satuan->nama}}</td>
                             <td>
                                 <button type="button" class="btn btn-outline-warning">Edit Satuan</button>
                                 <button type="button" class="btn btn-outline-danger">Hapus Satuan</button>
                             </td>
                         </tr>
+                        @empty
+                        @endforelse
                     </tbody>
                 </table>
             </div>

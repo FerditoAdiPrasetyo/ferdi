@@ -5,11 +5,11 @@ namespace App;
 use Alfa6661\AutoNumber\AutoNumberTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Kategori extends Model
+class Brand extends Model
 {
-    use AutoNumberTrait;
+      use AutoNumberTrait;
 
-    protected $table = 'kategories';
+    protected $table = 'brands';
     protected $guarded = [
     ];
 
@@ -18,7 +18,7 @@ class Kategori extends Model
         return [
             'no_reg' => [
                 'format' => function () {
-                    return 'KTG/' . date('Ymd') . '/?';
+                    return 'BRND/' . date('Ymd') . '/?';
                 },
                 'length' => 3
             ]

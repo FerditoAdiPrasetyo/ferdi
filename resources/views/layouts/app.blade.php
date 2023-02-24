@@ -36,6 +36,7 @@
                     <!-- Right Side Of Navbar -->
                             @if (Route::has('login'))
                                 @auth
+                                @role('admin')
                                     <a href="{{route('home')}}" class="nav-link" style="color: black"> Home </a>
                                     <div class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" style="color: black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,8 +58,13 @@
                                         <a class="dropdown-item" href="{{route('transaksi.out')}}">Barang Keluar</a>
                                         </div>
                                     </div>
+                                    @endrole
+                                    @role('customer')
+                                         <a href="{{route('masterbarang')}}" class="nav-link" style="color: black">Master Barang</a>
+                                    @endrole
                                 @endauth
                             @endif
+                            
                     <ul class="navbar-nav ml-auto" >
                         <!-- Authentication Links -->
                         @guest
