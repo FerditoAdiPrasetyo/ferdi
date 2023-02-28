@@ -15,13 +15,36 @@
                 <thead>
                     <th scope="col">Refrensi</th>
                     <th scope="col">Supplier</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Jumlah Permintaan</th>
                     <th scope="col">Tanggal</th>
-                    <th scope="col">Options</th>
+                    <th scope="col">Quantity</th>
+
                 </thead>
                 <tbody>
-                    <td></td>
-                </tr>
+                    @forelse ($permintaans as $permintaan)
+                   <tr>
+                    <td>{{$permintaan->kode_permintaan}}</td>
+                    <td>{{$permintaan->barang->brand->nama}}</td>
+                    <td>{{$permintaan->jumlah}}</td>
+                    <td>{{$permintaan->created_at}}</td>
+                    <td>{{$permintaan->total}}</td>
+                    @role ('admin')
+                        @if ($permintaan->status !== 'in')
+                            <td class="d-flex">
+                                <form action="" method="post">
+                                    @csrf
+                                    <button class="btn btn-outline-info btn-sm">Setujui</button>
+                                </form>
+                                <form action="" method="post">
+                                    @csrf
+                                    <button class="btn btn-outline-danger btn-sm ml-2">Tolak</button>
+                                </form>
+                            </td>
+                            @endif
+                        @endrole
+                    </tr>
+                    @empty
+                    @endrole
                 </tbody>
             </table>
         </div>

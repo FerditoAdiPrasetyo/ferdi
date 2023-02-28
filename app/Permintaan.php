@@ -16,7 +16,7 @@ class Permintaan extends Model
     public function getAutoNumberOptions()
     {
         return [
-            'koe_permintaan' => [
+            'kode_permintaan' => [
                 'format' => function () {
                     return 'REQ/' . date('Ymd') . '/?';
                 },
