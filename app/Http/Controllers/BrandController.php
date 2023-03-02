@@ -20,8 +20,23 @@ class BrandController extends Controller
         );
         return redirect()->back();
     }
-    public function edit()
+    public function edit($id)
     {
-        return view('brand.edit');
+        $brand = Brand::findOrFail($id);
+        return view('brand.edit', compact('brand'));
+    }
+     public function update(Request $request, $id)
+    {
+        $brand = Brand::findOrFail($id);
+        $brand->update(['nama' => $request->nama]);
+        
+        return redirect()->route('brand');
+    }
+     public function destroy(Request $request, $id)
+    {
+        $brand = Brand::findOrFail($id);
+        $brand->delete();
+
+        return redirect()->back();
     }
 }

@@ -13,15 +13,30 @@ class UomController extends Controller
         $satuans = Satuan::paginate(5);
         return view('uom.index', compact('satuans'));
     }
-    public function edit()
-    {
-        return view('uom.edit');
-    }
     public function store(Request $request)
     {
         $kategori = Satuan::create(
             $request->all()
         );
+        return redirect()->back();
+    }
+     public function edit($id)
+    {
+        $satuan = Satuan::findOrFail($id);
+        return view('uom.edit', compact('satuan'));
+    }
+     public function update(Request $request, $id)
+    {
+        $satuan = Satuan::findOrFail($id);
+        $satuan->update(['nama' => $request->nama]);
+        
+        return redirect()->route('uom');
+    }
+     public function destroy(Request $request, $id)
+    {
+        $satuan = Satuan::findOrFail($id);
+        $satuan->delete();
+
         return redirect()->back();
     }
 }

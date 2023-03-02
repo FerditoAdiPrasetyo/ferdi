@@ -37,8 +37,12 @@
                             <td>{{$satuan->no_reg}}</td>
                             <td>{{$satuan->nama}}</td>
                             <td>
-                                <button type="button" class="btn btn-outline-warning">Edit Satuan</button>
-                                <button type="button" class="btn btn-outline-danger">Hapus Satuan</button>
+                                <form action="{{ route('brand.destroy', $satuan->id) }}" method="post">
+                                    <a type="button" href="{{route('uom.edit', $satuan->id)}}" class="btn btn-outline-warning ">Edit Kategori</a>
+                                    @csrf 
+                                    @method("DELETE")
+                                    <button type="submit" class="btn btn-outline-danger">Hapus Brand</button>
+                                </form>
                             </td>
                         </tr>
                         @empty

@@ -22,8 +22,22 @@ class KategoriController extends Controller
     }
     public function edit($id)
     {
-        $kategories = Kategori::findOrFail($id);
+        $kategori = Kategori::findOrFail($id);
         return view('kategori.edit', compact('kategori'));
+    }
+     public function update(Request $request, $id)
+    {
+        $kategori = Kategori::findOrFail($id);
+        $kategori->update(['nama' => $request->nama]);
+        
+        return redirect()->route('kategori');
+    }
+     public function destroy(Request $request, $id)
+    {
+        $kategori = Kategori::findOrFail($id);
+        $kategori->delete();
+
+        return redirect()->back();
     }
 
 }

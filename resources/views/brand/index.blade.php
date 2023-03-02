@@ -13,15 +13,15 @@
             <div class="card">
                 <div class="card-body">
                     <form action="{{route('brand.store')}}" method="post">
-                        @csrf
-                    <div class="form-group">
+                    @csrf
+                    <div id="answer1" class="form-group">
                         <label for="">Nama Brand</label>
-                        <input type="text" name="nama" class="form-control" id="" placeholder="">
+                        <input type="text" name="nama"  class="form-control" id="" placeholder="">
                         <button type="submit" class="btn btn-outline-primary mt-4">
-                            Simpan Brand
+                            Perbarui Kategori
                         </button>
                     </div>
-                    </from>
+                    </form>
                 </div>
             </div>
         </div>
@@ -34,13 +34,17 @@
                         <th scope="col">Options</th>
                     </thead>
                     <tbody>
-                        @forelse ($brands as $brand)
+                        @forelse($brands as $brand)
                         <tr>
                             <td>{{$brand->no_reg}}</td>
                             <td>{{$brand->nama}}</td>
                             <td>
-                                <button type="button" class="btn btn-outline-warning">Edit Brand</button>
-                                <button type="button" class="btn btn-outline-danger">Hapus Brand</button>
+                                <a type="button" href="{{route('brand.edit', $brand->id)}}" class="btn btn-outline-warning ">Edit Brand</a>
+                                <form action="{{ route('brand.destroy', $brand->id) }}" method="post">
+                                    @csrf 
+                                    @method("DELETE")
+                                    <button type="submit" class="btn btn-outline-danger">Hapus Brand</button>
+                                </form>
                             </td>
                         </tr>
                         @empty

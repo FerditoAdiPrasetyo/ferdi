@@ -39,8 +39,12 @@
                             <td>{{$kategori->no_reg}}</td>
                             <td>{{$kategori->nama}}</td>
                             <td>
-                                <button type="button" class="btn btn-outline-warning">Edit Kategori</button>
-                                <button type="button" class="btn btn-outline-danger">Hapus Kategori</button>
+                                <a type="button" href="{{route('kategori.edit', $kategori->id)}}" class="btn btn-outline-warning ">Edit Kategori</a>
+                                 <form action="{{ route('kategori.destroy', $kategori->id) }}" method="post">
+                                    @csrf 
+                                    @method("DELETE")
+                                    <button type="submit" class="btn btn-outline-danger">Hapus Kategori</button>
+                                </form>
                             </td>
                         </tr>
                         @empty

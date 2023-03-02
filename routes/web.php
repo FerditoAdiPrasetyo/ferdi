@@ -37,22 +37,28 @@ Route::group(['prefix'=>'masterbarang'], function(){
 //kategori
 Route::group(['prefix'=>'kategori'], function(){
     route::get('/','KategoriController@index')->name('kategori');
-    route::get('/edit','KategoriController@edit')->name('kategori.edit');
+    route::get('/edit/{kategori}','KategoriController@edit')->name('kategori.edit');
+    route::patch('/update/{kategori}','KategoriController@update')->name('kategori.update');
     route::post('/store','KategoriController@store')->name('kategori.store');
+    route::delete('{kategori}', 'KategoriController@destroy')->name('kategori.destroy');
 });
 
 //brand
 Route::group(['prefix'=>'brand'], function(){
     route::get('/','BrandController@index')->name('brand');
-    route::get('/edit','BrandController@edit')->name('brand.edit');
-    route::post('/','BrandController@store')->name('brand.store');
+    route::get('/edit/{brand}','BrandController@edit')->name('brand.edit');
+    route::patch('/update/{brand}','BrandController@update')->name('brand.update');
+    route::post('/store','BrandController@store')->name('brand.store');
+    route::delete('{brand}', 'BrandController@destroy')->name('brand.destroy');
 });
 
 //uom
 Route::group(['prefix'=>'satuan'], function(){
     route::get('/','UomController@index')->name('uom');
-    route::get('/edit','UomController@edit')->name('uom.edit');
+    route::get('/edit{satuan}','UomController@edit')->name('uom.edit');
+    route::patch('/update/{satuan}','UomController@update')->name('uom.update');
     route::post('/store','UomController@store')->name('uom.store');
+    route::delete('{satuan}', 'UomController@destroy')->name('uom.destroy');
 });
 
 Route::group(['prefix' => 'rak'], function () {
