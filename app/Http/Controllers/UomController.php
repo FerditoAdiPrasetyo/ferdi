@@ -20,19 +20,19 @@ class UomController extends Controller
         );
         return redirect()->back();
     }
-     public function edit($id)
+    public function edit($id)
     {
         $satuan = Satuan::findOrFail($id);
         return view('uom.edit', compact('satuan'));
     }
-     public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $satuan = Satuan::findOrFail($id);
         $satuan->update(['nama' => $request->nama]);
         
         return redirect()->route('uom');
     }
-     public function destroy(Request $request, $id)
+    public function destroy(Request $request, $id)
     {
         $satuan = Satuan::findOrFail($id);
         $satuan->delete();

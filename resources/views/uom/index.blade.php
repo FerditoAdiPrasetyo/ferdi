@@ -37,11 +37,11 @@
                             <td>{{$satuan->no_reg}}</td>
                             <td>{{$satuan->nama}}</td>
                             <td>
-                                <form action="{{ route('brand.destroy', $satuan->id) }}" method="post">
-                                    <a type="button" href="{{route('uom.edit', $satuan->id)}}" class="btn btn-outline-warning ">Edit Kategori</a>
+                                 <a type="button" href="{{route('uom.edit', $satuan->id)}}" class="btn btn-outline-warning ">Edit Satuan</a>
+                                 <form action="{{ route('uom.destroy', $satuan->id) }}" method="post">
                                     @csrf 
                                     @method("DELETE")
-                                    <button type="submit" class="btn btn-outline-danger">Hapus Brand</button>
+                                    <button type="submit" class="btn btn-outline-danger">Hapus Satuan</button>
                                 </form>
                             </td>
                         </tr>

@@ -12,8 +12,8 @@
         <div class="card-body">
             <table class="table table-striped">
                  <thead>
-                     <th scope="col">Kode Categorys</th>
-                     <th scope="col">Nama Barang</th>
+                     <th scope="col">Kode Kategori</th>
+                     <th scope="col">Nama Kategori</th>
                      <th scope="col">Options</th>
                  </thead>
                  <tbody>

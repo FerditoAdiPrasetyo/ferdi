@@ -25,14 +25,14 @@ class BrandController extends Controller
         $brand = Brand::findOrFail($id);
         return view('brand.edit', compact('brand'));
     }
-     public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $brand = Brand::findOrFail($id);
         $brand->update(['nama' => $request->nama]);
         
         return redirect()->route('brand');
     }
-     public function destroy(Request $request, $id)
+    public function destroy(Request $request, $id)
     {
         $brand = Brand::findOrFail($id);
         $brand->delete();
