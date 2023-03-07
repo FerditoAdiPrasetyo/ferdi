@@ -10,34 +10,36 @@
     </div>
     <div class="row">
         <div class="col-md-4">
+            <div class="card">
                 <div class="card-body">
                     <form action="{{route('uom.store')}}" method="post">
-                        @csrf
+                    @csrf
                     <div id="answer1" class="form-group">
                         <label for="">Nama Satuan</label>
                         <input type="text" name="nama"  class="form-control" id="" placeholder="">
                         <button type="submit" class="btn btn-outline-primary mt-4">
-                            Simpan Satuan
+                            Perbarui Satuan
                         </button>
                     </div>
-                    </from>
+                    </form>
                 </div>
+            </div>
         </div>
         <div class="col-md-8">
             <div class="card">
                 <table class="table table-hover">
                     <thead>
                         <th scope="col">Kode Satuan</th>
-                        <th scope="col">Nama</th>
+                        <th scope="col">Nama Satuan</th>
                         <th scope="col">Options</th>
                     </thead>
                     <tbody>
-                        @forelse ($satuans as $satuan)
+                        @forelse($satuans as $satuan)
                         <tr>
                             <td>{{$satuan->no_reg}}</td>
                             <td>{{$satuan->nama}}</td>
                             <td>
-                                 <a type="button" href="{{route('uom.edit', $satuan->id)}}" class="btn btn-outline-warning ">Edit Satuan</a>
+                                <a type="button" href="{{route('uom.edit', $satuan->id)}}" class="btn btn-outline-warning ">Edit Satuan</a>
                                  <form action="{{ route('uom.destroy', $satuan->id) }}" method="post">
                                     @csrf 
                                     @method("DELETE")
