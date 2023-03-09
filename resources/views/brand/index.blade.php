@@ -39,8 +39,8 @@
                             <td>{{$brand->no_reg}}</td>
                             <td>{{$brand->nama}}</td>
                             <td>
-                                <a type="button" href="{{route('brand.edit', $brand->id)}}" class="btn btn-outline-warning ">Edit Brand</a>
                                 <form action="{{ route('brand.destroy', $brand->id) }}" method="post">
+                                    <a type="button" href="{{route('brand.edit', $brand->id)}}" class="btn btn-outline-warning ">Edit Brand</a>
                                     @csrf 
                                     @method("DELETE")
                                     <button type="submit" class="btn btn-outline-danger">Hapus Brand</button>

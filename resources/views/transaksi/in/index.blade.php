@@ -22,7 +22,6 @@
                         <th>Supplier</th>
                         <th>Jumlah permintaan</th>
                         <th>Tanggal</th>
-                        <th>Quantity</th>
                         <th>Status</th>
                         @role('admin')
                             <th>Options</th>
@@ -36,14 +35,13 @@
                             <td>{{$permintaan->barang->brand->nama}}</td>
                             <td>{{$permintaan->jumlah}}</td>
                             <td>{{$permintaan->created_at}}</td>
-                            <td>{{$permintaan->total}}</td>
                             <td>{{$permintaan->status}}</td>
                              @role('admin')
                                 @if ($permintaan->status == 'in')
                                     <td class="d-flex">
-                                        <form class="mr-2" action="{{route('transaksi.store', $permintaan->id)}}" method="post">
+                                        <form class="mr-2" action="{{route('transaksi.update', $permintaan->id)}}" method="post">
                                             @csrf
-                                            @method('POST')
+                                            @method('PATCH')
                                            <button type="submit" class="btn btn-outline-info">Setujui</button>
                                         </form>
                                         <form action="{{route('transaksi.destroy', $permintaan->id) }}" method="post">

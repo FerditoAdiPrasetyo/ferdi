@@ -15,7 +15,7 @@ class BrandController extends Controller
     }
     public function store(Request $request)
     {
-        $kategory = Brand::create(
+        $kategori = Brand::create(
             $request->all()
         );
         return redirect()->back();

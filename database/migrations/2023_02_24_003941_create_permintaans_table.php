@@ -18,7 +18,6 @@ class CreatePermintaansTable extends Migration
             $table->unsignedInteger('barang_id');
             $table->string('kode_permintaan');
             $table->string('jumlah');
-            $table->string('total');
             $table->string('status');
             $table->timestamps();
         });

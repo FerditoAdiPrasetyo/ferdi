@@ -22,7 +22,6 @@ class RequestBarangController extends Controller
        Permintaan::create([
         'barang_id' => $barang->id,
         'jumlah'    => $request->jumlah,
-        'total'     => $request->total,
         'status'    => 'in'
        ]);
 

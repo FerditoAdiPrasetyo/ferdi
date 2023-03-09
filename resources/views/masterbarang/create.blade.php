@@ -24,7 +24,6 @@
                             <label for="" style="font-weight: bold;">Brand:</label>
                             <select name="brand_id" id="" class="form-control">
                                 @foreach ($brands as $brands)
-                                <option value="">Pilih Brand</option>
                                 <option value="{{$brands->id}}">{{$brands->no_reg}} - {{$brands->nama}}</option>
                                 @endforeach
                             </select>
@@ -35,7 +34,6 @@
                             <label for="" style="font-weight: bold;">UOM:</label>
                             <select name="satuan_id" id="" class="form-control">
                                 @foreach ($satuans as $uom)
-                                <option value="">Pilih UOM</option>
                                 <option value="{{$uom->id}}">{{$uom->no_reg}} - {{$uom->nama}}</option>
                                 @endforeach
                             </select>

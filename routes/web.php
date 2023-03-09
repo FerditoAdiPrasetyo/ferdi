@@ -21,7 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'transaksi'], function () {
     route::get('/in', 'Transaksi\InController@index')->name('transaksi.in');
-    route::post('/store/{transaksi}', 'Transaksi\InController@store')->name('transaksi.store');
+    // route::patch('/store/{transaksi}', 'Transaksi\InController@store')->name('transaksi.store');
+    route::patch('/update/{transaksi}','Transaksi\InController@update')->name('transaksi.update');
     route::delete('{transaksi}', 'Transaksi\InController@destroy')->name('transaksi.destroy');
     route::get('/out', 'Transaksi\OutController@index')->name('transaksi.out');
 });
