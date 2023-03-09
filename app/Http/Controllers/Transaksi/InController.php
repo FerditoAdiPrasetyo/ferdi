@@ -35,20 +35,20 @@ class InController extends Controller
     * @param  \App\Permintaan  $permintaan
     */
 
-    public function update(Permintaan $permintaan)
+    public function update($id)
     {
+        $permintaan = Permintaan::findOrFail($id);
         $barang = Barang::findOrFail($permintaan->barang_id);
         $permintaan->update([
             'status'                => 'approved',
-            'tanggal'                => now(),
         ]);
         if ($permintaan->save()) {
-            $hitung = $barang->stock - $permintaan->jumlah;
+            $hitung = $barang->quantity - $permintaan->jumlah;
             $barang->update([
-                'stock' => $hitung
+                'quantity' => $hitung
             ]);
         }
-        return redirect()->back()->with('successfull', 'Permintaan Berhasil Disetujui');
+        return redirect()->back();
     }
 
     public function destroy(Request $request, $id)
